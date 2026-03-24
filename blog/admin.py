@@ -1,7 +1,7 @@
-from django.contrib import admin
+# -*- coding: utf-8 -º1     *-
 
-# Register your models here.
-from .models import Category, Post, Comment
+from django.contrib import admin
+from .models import Post, Category, Comment
 
 class CommentItemInline(admin.TabularInline):
     model = Comment
@@ -15,11 +15,11 @@ class PostAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['title']
-    list_display = ('title')
+    list_display = ('title', )
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'post', 'created_at')
+    list_display = ('name', 'post', 'created_at', )
 
+admin.site.register(Post, PostAdmin) 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
